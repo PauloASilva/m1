@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func Register(router *http.ServeMux) {
-	controllers.HomeRegister(router)
-	controllers.AboutRegister(router)
+var Routes = map[string]func(w http.ResponseWriter, req *http.Request){
+	"/":      controllers.Home,
+	"/about": controllers.About,
 }
